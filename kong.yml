@@ -23,21 +23,29 @@ _transform: true
 # Each Kong entity (core entity or custom entity introduced by a plugin)
 # can be listed in the top-level as an array of objects:
 
-# services:
-# - name: example-service
-#   url: http://example.com
-#   # Entities can store tags as metadata
-#   tags:
-#   - example
-#   # Entities that have a foreign-key relationship can be nested:
-#   routes:
-#   - name: example-route
-#     paths:
-#     - /
-#   plugins:
-#   - name: key-auth
-# - name: another-service
-#   url: https://example.org
+services:
+- name: user-api
+  url: http://localhost:8002
+  # Entities can store tags as metadata
+  tags:
+  - example
+  # Entities that have a foreign-key relationship can be nested:
+  routes:
+  - name: user-api-routes
+    paths:
+    - /user-api
+  
+  services:
+- name: client-api
+  url: http://localhost:8003
+  # Entities can store tags as metadata
+  tags:
+  - example
+  # Entities that have a foreign-key relationship can be nested:
+  routes:
+  - name: client-api-routes
+    paths:
+    - /client-api
 
 # routes:
 # - name: another-route
