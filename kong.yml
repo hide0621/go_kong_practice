@@ -34,14 +34,8 @@ services:
   - name: user-api-routes
     paths:
     - /user-api
-  
-  services:
-- name: client-api
+  - name: client-api
   url: http://localhost:8003
-  # Entities can store tags as metadata
-  tags:
-  - example
-  # Entities that have a foreign-key relationship can be nested:
   routes:
   - name: client-api-routes
     paths:
