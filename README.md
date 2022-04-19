@@ -88,9 +88,71 @@ services以下にルーティング情報を記載していくが、ルーティ
 
 #### 成功例：
 
+services:
+
+ name: user-api
+  
+  url: http://localhost:8002
+  
+  tags:
+  
+  example
+ 
+  routes:
+  
+  name: user-api-routes
+    
+    paths:
+    
+    /user-api
+  
+  name: client-api
+  
+  url: http://localhost:8003
+  
+  routes:
+  
+  name: client-api-routes
+    
+   　paths:
+    
+    /client-api
 
 
 #### 失敗例:
+
+services:
+
+ name: user-api
+  
+  url: http://localhost:8002
+  
+  
+  tags:
+  
+  example
+  
+  routes:
+  
+  name: user-api-routes
+    
+    paths:
+    
+    /user-api
+    
+ **services:**  **--失敗の原因--**
+  
+  name: client-api
+  
+  url: http://localhost:8003
+  
+  routes:
+  
+  name: client-api-routes
+    
+    paths:
+    
+    /client-api
 
 
 ## 手順9: 
